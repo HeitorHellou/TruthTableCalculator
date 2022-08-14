@@ -11,7 +11,8 @@ Stack::Stack()
 // destructor
 Stack::~Stack()
 {
-
+	while (!is_empty())
+		pop();
 }
 
 // push an character into the stack
@@ -28,10 +29,13 @@ char Stack::pop()
 {
 	if (is_empty())
 		return 0;
+
 	S_Node* temp = head;
 	head = head->next;
 	char popped = temp->op;
+
 	delete temp;
+
 	return popped;
 }
 
@@ -46,7 +50,27 @@ char Stack::peek()
 {
 	if (is_empty())
 		return 0;
+
 	return head->op;
+}
+
+void Stack::push_array(std::vector<int> arr)
+{
+	S_Node* node = new S_Node();
+	node->arr = arr;
+	node->next = head;
+	head = node;
+}
+
+std::vector<int> Stack::pop_array()
+{
+	if (is_empty())
+		return {};
+	S_Node* temp = head;
+	head = head->next;
+	std::vector<int> popped = temp->arr;
+
+	return popped;
 }
 
 void Stack::print()
@@ -57,4 +81,6 @@ void Stack::print()
 		std::cout << "char: " << temp->op << std::endl;
 		temp = temp->next;
 	}
+
+	delete temp;
 }

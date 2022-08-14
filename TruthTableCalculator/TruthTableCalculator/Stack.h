@@ -1,9 +1,11 @@
 #pragma once
 
+#include <vector>
+
 struct S_Node
 {
 	char op;
-	int* arr;
+	std::vector<int> arr;
 	S_Node* next;
 };
 
@@ -16,6 +18,8 @@ public:
 	char pop(); // pop the stack
 	bool is_empty(); // check if the stack is empty
 	char peek(); // return the top element of the stack
+	void push_array(std::vector<int> arr);
+	std::vector<int> pop_array();
 	void print(); // print the stack
 private:
 	S_Node* head;

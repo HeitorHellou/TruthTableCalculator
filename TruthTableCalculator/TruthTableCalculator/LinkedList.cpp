@@ -10,12 +10,6 @@ LinkedList::LinkedList()
 	head = nullptr;
 }
 
-// destructor
-LinkedList::~LinkedList()
-{
-
-}
-
 void LinkedList::insert_last(char op, int total, int pos)
 {
 	int max = (int)pow(2, total); // getting the total of elements an truth table variable will have
@@ -44,6 +38,7 @@ void LinkedList::insert_last(char op, int total, int pos)
 
 	// change the next of last node
 	last->next = node;
+
 	return;
 }
 
@@ -57,8 +52,6 @@ std::vector<int> LinkedList::get_operand_array(char op)
 
 		temp = temp->next;
 	}
-
-	delete temp;
 }
 
 void LinkedList::print()

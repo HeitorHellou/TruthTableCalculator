@@ -2,9 +2,7 @@
 
 struct Q_Node
 {
-	char operand;
-	int size;
-	int* arr;
+	char character;
 	Q_Node* next;
 };
 
@@ -13,8 +11,9 @@ class Queue
 public:
 	Queue(); // constructor
 	~Queue(); // destructor
-	void push(char c); // inserts a node in the queue
-	char pop(); // removes a node from the queue
+	void enqueue(char c); // inserts a node in the queue
+	char dequeue(); // removes a node from the queue
+	bool is_empty(); // check if head of queue == null
 	void print(); // print the queue
 private:
 	Q_Node* head;

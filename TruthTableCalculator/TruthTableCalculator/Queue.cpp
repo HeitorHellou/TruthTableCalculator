@@ -11,15 +11,16 @@ Queue::Queue()
 
 Queue::~Queue()
 {
-
+	while (!is_empty())
+		dequeue();
 }
 
 // push a node at the end of the queue
-void Queue::push(char c)
+void Queue::enqueue(char c)
 {
 	// creating new queue node
 	Q_Node* node = new Q_Node();
-	node->operand = c;
+	node->character = c;
 	node->next = nullptr;
 
 	// cheking if tail is null
@@ -36,13 +37,13 @@ void Queue::push(char c)
 }
 
 // pop the first node of the queue
-char Queue::pop()
+char Queue::dequeue()
 {
 	// ckeck if queue is not empty
 	if (head == nullptr)
 		return ':'; // return a random char
 
-	char operand = head->operand; // get the operand 
+	char operand = head->character; // get the operand 
 	head = head->next; // change the top of the queue
 
 	// if the head is null change the tail to be null
@@ -57,7 +58,12 @@ void Queue::print()
 	Q_Node* temp = head;
 	while (temp != nullptr)
 	{
-		std::cout << "operand: " << temp->operand << std::endl;
+		std::cout << "operand: " << temp->character << std::endl;
 		temp = temp->next;
 	}
+}
+
+bool Queue::is_empty()
+{
+	return head == nullptr;
 }
