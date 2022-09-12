@@ -1,5 +1,5 @@
 # Truth Table Calculator
-An program to calculate truth table expressions.
+A program to calculate truth table expressions.
 
 ## Code
 The program implements the Shunting Yard algorithm along with queue and stack data structure implementations to solve the expression.
