@@ -6,9 +6,6 @@
 int main()
 {
     int solve{ 1 };
-    /*Queue* postfix;
-    LinkedList* operands;
-    Stack* stack;*/
     while (solve)
     {
         std::string infix; // infix expression entered by the user
@@ -25,7 +22,7 @@ int main()
         // making the list of operands and adding its array values
         std::vector<int> hash(128, 0);
         int pos = 1;
-        for (int i{ 0 }; infix[i]; i++)
+        for (int i{ 0 }; infix[i]; ++i)
         {
             if (is_operand(infix[i]))
                 hash[infix[i]] = 1;

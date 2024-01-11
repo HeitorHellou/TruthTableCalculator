@@ -10,6 +10,15 @@ LinkedList::LinkedList()
 	head = nullptr;
 }
 
+// destructor
+LinkedList::~LinkedList()
+{
+	while (head)
+	{
+		head = head->next;
+	}
+}
+
 void LinkedList::insert_last(char op, int total, int pos)
 {
 	int max = (int)pow(2, total); // getting the total of elements an truth table variable will have
@@ -19,7 +28,7 @@ void LinkedList::insert_last(char op, int total, int pos)
 	node->arr.reserve(max); // array that weill have the truth table values
 	// fills the array correspondly with the number of operands
 	// 1 - True / 0 - False
-	for (int i = 0; i < max; i++)
+	for (int i = 0; i < max; ++i)
 		node->arr.push_back((i & (int)pow(2, (total - pos))) == 0);
 	node->next = nullptr;
 

@@ -30,7 +30,7 @@ int count_unique_operands(std::string str)
 	std::vector<int> hash(128, 0); // there is 128 characters each represented by a unique integer value -> ASCII code
 	int c = 0;
 
-	for (int i { 0 }; str[i]; i++)
+	for (int i { 0 }; str[i]; ++i)
 	{
 		// only add the char that are operands
 		// set the position correspondent to the ASCII value to 1

@@ -24,19 +24,3 @@ public:
 private:
 	S_Node* head;
 };
-
-/* TESTING
-Stack* stack = new Stack();
-stack->push('A');
-stack->push('E');
-stack->push('I');
-stack->push('O');
-stack->push('U');
-stack->print();
-stack->pop();
-std::cout << "peek: " << stack->peek() << std::endl;
-stack->pop();
-stack->print();
-
-delete stack;
-*/
